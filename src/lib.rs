@@ -27,7 +27,7 @@ pub struct Steering(pub f32);
 #[derive(Debug, Clone, PartialEq, Default, Storable)]
 pub struct ParkingBrake(pub f32);
 
-/// Control command packet sent to the simulation.
+/// A control command packet sent to the simulation.
 /// Fields are optional to allow partial updates.
 #[derive(Debug, Default, Deserialize, Serialize)]
 struct SimulationControl {
@@ -63,10 +63,6 @@ pub struct Speed(pub f32);
 /// - Monitors throttle input and forwards to simulation via Unix socket
 /// - Receives speed sensor data and publishes to veecle-os runtime
 /// - Uses newline-delimited JSON for bidirectional communication
-/// 
-/// # Error Handling
-/// - Exits process if socket connection fails or disconnects
-/// - Logs errors for invalid data but continues operation
 #[veecle_os::runtime::actor]
 #[veecle_os::telemetry::instrument]
 pub async fn cruise_control_simulator(
