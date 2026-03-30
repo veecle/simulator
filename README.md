@@ -15,7 +15,7 @@ This simulator acts as an interface layer that:
 
 ```
 veecle-os Runtime <---> Simulator Bridge <---> External Simulation
-                         (this project)         (/opt/simulation.sock)
+                         (this actor)         (/opt/simulation.sock)
 ```
 
 ### Communication Protocol
